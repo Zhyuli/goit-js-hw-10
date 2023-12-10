@@ -1,3 +1,11 @@
+.error {
+    display: block;
+}
+
+.is-hidden {
+    display: none;
+}
+
 body {
     background-color: #e4dfd9;
 }

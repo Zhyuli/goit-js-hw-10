@@ -17,9 +17,9 @@ fetchBreeds()
         select.style.display = 'block'
         loader.style.display = 'none'
         select.insertAdjacentHTML('beforeend', createOptions(response))
-        new SlimSelect({
-  select: '#selectElement'
-        })
+//         new SlimSelect({
+//   select: '#selectElement'
+//         })
             })
     .catch(error => {
         console.log(error);
@@ -27,13 +27,14 @@ fetchBreeds()
         Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');       
     })
 
-function createOptions(value) {
-    return value.map(({ id, name }) => {
+function createOptions(arr) {
+    return arr.map(({id, name}) => {
         return `<option value="${id}">${name}</option>`
     }).join('');
 }
 
-function onChoose(evt) {
+
+function onChoose() {
     loader.style.display = 'block'
     const selectedId = this.value
     select.style.display = 'none'
