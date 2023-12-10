@@ -10,7 +10,7 @@ const catInfo = document.querySelector('.cat-info');
 // // const error = document.querySelector('.cat-info');
 const body = document.querySelector('body');
 
-select.addEventListener("choose", onChoose)
+select.addEventListener("change", onChange)
 
 fetchBreeds()
     .then(response => {
@@ -34,7 +34,7 @@ function createOptions(arr) {
 }
 
 
-function onChoose() {
+function onChange() {
     loader.style.display = 'block'
     const selectedId = this.value
     select.style.display = 'none'
