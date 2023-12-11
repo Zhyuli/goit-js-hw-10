@@ -34,7 +34,11 @@ function createOptions(arr) {
 }
 
 
+
 function onChange(evt) {
+
+
+
     loader.style.display = 'block'
     
     // const selectedId = this.value
