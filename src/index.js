@@ -1,5 +1,5 @@
 import Notiflix from 'notiflix';
-import SlimSelect from 'slim-select'
+// import SlimSelect from 'slim-select'
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api';
 import 'slim-select/dist/slimselect.css';
@@ -10,15 +10,15 @@ const catInfo = document.querySelector('.cat-info');
 // // const error = document.querySelector('.cat-info');
 const body = document.querySelector('body');
 
-select.addEventListener("choose", onChoose)
+select.addEventListener("change", onChange)
 
 fetchBreeds()
     .then(response => {
         select.style.display = 'block'
         loader.style.display = 'none'
         select.insertAdjacentHTML('beforeend', createOptions(response))
-//         new SlimSelect({
-//   select: '#selectElement'
+//          new SlimSelect({
+//    select: select
 //         })
             })
     .catch(error => {
@@ -34,20 +34,27 @@ function createOptions(arr) {
 }
 
 
-function onChoose() {
+function onChange(evt) {
     loader.style.display = 'block'
-    const selectedId = this.value
-    select.style.display = 'none'
+    
+    // const selectedId = this.value
+   
     catInfo.innerHTML = '';
 
-    fetchCatByBreed(selectedId)
+    fetchCatByBreed(evt.target.value)
         .then(catEl => {
-            loader.style.display = 'none';
+           
             catInfo.innerHTML = createMarckup(catEl)
+            console.log(catEl);
         })
         .catch(error => {
             console.log(error);
             Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');  
+            select.style.display = 'none'
+
+        })
+        .finally(() => {
+        loader.style.display = 'none';
     })
 }
 
