@@ -57,9 +57,9 @@ function onChange(evt) {
             select.style.display = 'block'
 
         })
-    //     .finally(() => {
-    //     loader.style.display = 'block';
-    // })
+        .finally(() => {
+        loader.style.display = 'none';
+    })
 }
 
 function createMarckup(catEl) {
