@@ -37,10 +37,8 @@ function createOptions(arr) {
 
 function onChange(evt) {
 
-
-
     loader.style.display = 'block'
-    
+
     // const selectedId = this.value
    
     catInfo.innerHTML = '';
@@ -54,7 +52,7 @@ function onChange(evt) {
         .catch(error => {
             console.log(error);
             Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');  
-            select.style.display = 'block'
+            // select.style.display = 'block'
 
         })
         .finally(() => {
