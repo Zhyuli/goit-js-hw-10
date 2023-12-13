@@ -54,12 +54,12 @@ function onChange(evt) {
         .catch(error => {
             console.log(error);
             Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');  
-            select.style.display = 'none'
+            select.style.display = 'block'
 
         })
-        .finally(() => {
-        loader.style.display = 'none';
-    })
+    //     .finally(() => {
+    //     loader.style.display = 'block';
+    // })
 }
 
 function createMarckup(catEl) {
